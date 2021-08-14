@@ -1,0 +1,35 @@
+W:PROJET
+F:PROJETNOMSEC
+S:PROJET
+***
+N£mero:                                           10 1000 2 0
+Nome:                                             20 1000 0 0
+Situaá∆o:                                         25 1000 1 0
+Respons†vel:                                      30 1000 0 1
+Data de in°cio:                                   40 1000 0 0
+Objetivos gerais:                                 50 1000 0 0
+Objetivos espec°ficos:        ab                  60 1000 0 1
+P£blico-alvo:                                     70 1000 0 0
+Secretaria:                                       80 1000 1 0
+‡rg∆o/Instituiá∆o respons†vel:                    90 1000 0 0
+Parcerias:                                        100 1000 0 1
+Equipe:                                           110 1000 0 1
+Endereáo:                                         120 1000 0 0
+Cidade:                                           130 1000 0 0
+Estado:                                           140 1000 0 0
+CEP:                                              150 1000 0 0
+Telefone:                                         160 1000 0 0
+Fax:                                              170 1000 0 0
+E-mail:                                           180 1000 0 1
+Site:                                             190 1000 0 1
+Justificativa:                                    200 1000 0 0
+Hist¢rico do projeto:                             210 1000 0 0
+Unidades de atendimento:      cs                  220 1000 0 1
+Condiá‰es Cidad∆o:                                230 1000 0 1
+Condiá‰es Prefeituras:                            240 1000 0 1
+Recursos oferecidos:                              250 1000 0 1
+Custos:                                           260 1000 0 0
+Atualizaá∆o do cadastro:                          270 1000 0 0
+Vinculo                                           280 1000 0 1
+Palavra chave                                     290 1000 0 0
+Senha                                             2002 1000 0 0

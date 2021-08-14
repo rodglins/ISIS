@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Programas e Projetos Sociais >> Formato 1</title>
+<link href="estilos.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+a {
+text-decoration: none; /* retira o sublinhado */
+color: #000000; /* muda a cor para verde */
+}
+
+#resultadoz {text-align: justify; padding: 5px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color: #000000; border: 1px solid "#999999"; }
+
+#camposbtn {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	border: 1px solid #000000;
+	font-weight: bold;
+	background-color: #F8F8F8;
+}
+
+</style>
+</head>
+<body>
+
+
+[pft]'<table width="100%" border="0" cellpadding="0" cellspacing="0"> '[/pft]
+
+[pft]
+if p(v20) then '<TR><TD align="left" id="menu">Registro 'v1001,' de ',v1002'&nbsp;</TD>'/fi,
+[/pft]
+
+
+[pft]'<td align="right"><a href="../projetos/index3.html" id="camposbtn">&nbsp;&nbsp;Nova&nbsp;busca&nbsp;&nbsp;<a></td></tr>'[/pft]
+
+
+
+[pft]
+(if p(v20) then '<TR><TD colspan="2" bgcolor=#F8F8F8 height="5" id=menu4><b><A HREF="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/script2.xis&base=cds&from=',mfn(5),'&to=',mfn(5),'" target="_parent" id=resultadox>',v20,'</A></b></TD></TR>'/fi),
+[/pft]
+
+[pft]
+if p(v50) then '<TR><TD colspan="2" id=resultadoz>Objetivos gerais:&nbsp;',v50,'</TD></TR>'/fi,
+[/pft]
+
+</table>
+<br><br>
+
+
+</center>
+</body>
+</html>

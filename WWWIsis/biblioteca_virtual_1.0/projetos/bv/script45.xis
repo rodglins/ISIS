@@ -1,0 +1,44 @@
+<IsisScript>
+<section>
+<display><pft>'Content-type: text/html'/#</pft></display>
+<!-- en las líneas siguientes se asigna el nombre de la base al campo 50, el from al campo 51 y el to al campo 52 -->
+<field action=cgi tag=50>base</field>
+<field action=cgi tag=51>from</field>
+<field action=cgi tag=52>to</field>
+<parm name=cipar><pft>cat('cds.cip')
+'cds.*=cds.*',/
+</pft></parm>  
+
+<do task=keyrange>
+
+<parm name=db><pft>v50</pft></parm>
+<parm name=from><pft>v51</pft></parm>	 
+<parm name=to><pft>v52</pft></parm>
+
+<field action=define tag=1>Isis_Key</field>
+<field action=define tag=2>Isis_Postings</field>
+
+<display><pft>'<h1><center>T&eacute;rminos del Diccionario</center></h1><p> <hr><h4>Seleccione un t&eacute;rmino y luego presione en Buscar</h4><p>'</pft></display>
+
+<display><pft>
+'<form action="/cgi-bin/wxis.exe" method="post">',
+'<input type="hidden" name="IsisScript" value="script5.xis">',
+'<input type="hidden" name=base value="',v50,'">',
+'<select name="claves"size="10">',
+</pft></display>
+
+<loop>
+<display><pft>
+
+'<option value="',v1,'">',v1,' [',v2,']</option>',
+</pft></display>
+</loop>
+
+<display><pft>
+'<br></select><input type=submit name=buscar value="Buscar">',
+'</form>'
+</pft>
+</display>
+</do>	 
+</section>
+</IsisScript>

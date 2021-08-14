@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Programas e Projetos Sociais >> Formato 1</title>
+<link href="estilos.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+a {
+text-decoration: none; /* retira o sublinhado */
+color: #000000; /* muda a cor para verde */
+}
+
+#resultadoz {text-align: justify; padding: 5px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color: #000000; border: 1px solid "#999999";}
+
+#camposbtn {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	border: 1px solid #000000;
+	font-weight: bold;
+	background-color: #F8F8F8;
+}
+
+</style> 
+</head>
+<body>
+
+
+[pft]'<table width="100%" border="0" cellpadding="0" cellspacing="0"> <tr></tr>'[/pft]
+
+[pft]'<tr><td></td><td align="right"><a href="javascript:history.go(-1)" id="camposbtn">&nbsp;&nbsp;Voltar&nbsp;&nbsp;<a></td></tr>'[/pft]
+</table>
+
+
+[pft]'<table border="0" cellpadding="0" cellspacing="0" id=resultadoz><tr></tr>'[/pft]
+
+
+[pft]
+if p(v20) then '<TR><TD WIDTH="30%" colspan="2" bgcolor=#F8F8F8 id=menu4><b>',v20,'</b></TD></TR>'/fi,
+[/pft]
+
+[pft]
+if p(v30) then '<TR><TD WIDTH="30%" colspan="2"><b>Responsável:&nbsp;</b>',v30+|; |'</TD></TR>',fi,/
+[/pft]
+
+
+[pft]
+if p(v40) then '<TR><TD WIDTH="30%" colspan="2"><b>Data de início:&nbsp;</b>',v40*6.2"/"v40*4.2"/"v40*0.4,'</TD></TR>'/fi,
+[/pft]
+
+
+[pft]
+if p(v50) then '<TR><TD WIDTH="30%" colspan="2"><b>Objetivos gerais:&nbsp;</b>',v50,'</TD></TR>'/fi,
+[/pft]
+
+
+[pft]
+if p(v60) then '<TR><TD WIDTH="30%" colspan="2"><b>Objetivos específicos:&nbsp;</b>',(v60^b+|<BR>|),'</TD></TR>',fi,/
+[/pft]
+
+
+[pft]
+if p(v70) then '<TR><TD WIDTH="30%" colspan="2"><b>Público-alvo:&nbsp;</b>',v70+|; |'</TD></TR>',fi,/
+[/pft]
+
+
+[pft]
+if p(v80) then '<TR><TD WIDTH="30%" colspan="2"><b>Secretaria:&nbsp;</b>',v80,'</TD></TR>'/fi,
+[/pft]
+
+
+
+[pft]
+if p(v90) then '<TR><TD WIDTH="30%" colspan="2"><b>Órgão/Instituição responsável:&nbsp;</b>',v90,'</TD></TR>'/fi,
+[/pft]
+
+
+[pft]
+if p(v100) then '<TR><TD WIDTH="30%" colspan="2"><b>Parcerias:&nbsp;</b>',v100+|; |'</TD></TR>',fi,/
+[/pft]
+
+[pft]
+if p(v110) then '<TR><TD WIDTH="30%" colspan="2"><b>Equipe:&nbsp;</b>',v110+|; |'</TD></TR>',fi,/
+[/pft]
+
+[pft]
+if p(v120) then '<TR><TD WIDTH="30%" colspan="2"><b>Endereço:&nbsp;</b>',v120,'</TD></TR>'/fi,
+[/pft]
+
+
+[pft]
+if p(v130) then '<TR><TD WIDTH="30%" colspan="2"><b>Cidade:&nbsp;</b>',v130,'</TD></TR>'/fi,
+[/pft]
+
+
+[pft]
+if p(v140) then '<TR><TD WIDTH="30%" colspan="2"><b>Estado:&nbsp;</b>',v140,'</TD></TR>'/fi,
+[/pft]
+
+[pft]
+if p(v150) then '<TR><TD WIDTH="30%" colspan="2"><b>CEP:&nbsp;</b>',v150,'</TD></TR>'/fi,
+[/pft]
+
+
+[pft]
+if p(v160) then '<TR><TD WIDTH="30%" colspan="2"><b>Telefone:&nbsp;</b>',v160,'</TD></TR>'/fi,
+[/pft]
+
+[pft]
+if p(v170) then '<TR><TD WIDTH="30%" colspan="2"><b>Fax:&nbsp;</b>',v170,'</TD></TR>'/fi,
+[/pft]
+
+
+[pft]
+(if p(v180) then '<TR><TD WIDTH="30%" colspan="2"><b>E-mail:&nbsp;</b><A HREF="mailto:',v180,'">',v180,'</A></TD></TR>'/fi),
+[/pft]
+
+
+[pft]
+(if p(v190) then '<TR><TD WIDTH="30%" colspan="2"><b>Site:&nbsp;</b><A HREF="',v190,'" target="_blank">Link para a página</A></TD></TR>'/fi),
+[/pft]
+
+
+[pft]
+if p(v200) then '<TR><TD WIDTH="30%" colspan="2"><b>Justificativa:&nbsp;</b>',v200,'</TD></TR>'/fi,
+[/pft]
+
+
+[pft]
+if p(v210) then '<TR><TD WIDTH="30%" colspan="2"><b>Histórico do projeto:&nbsp;</b>',v210,'</TD></TR>'fi,
+[/pft]
+
+[pft]
+if p(v220) then '<tr><TD WIDTH="30%" colspan="2"><b>Unidades de atendimento:</b><br><br>',(|<b>|v220^c+|</b>  |v220^s+|<BR>|),'</td></tr>', fi,
+[/pft]
+
+
+[pft]
+if p(v230) then '<TR><TD WIDTH="30%" colspan="2"><b>Condições Cidadão:&nbsp;</b>',v230+|; |'</TD></TR>'/fi,
+[/pft]
+
+
+[pft]
+if p(v240) then '<TR><TD WIDTH="30%" colspan="2"><b>Condições Prefeituras:&nbsp;</b>',v240+|; |'</TD></TR>'/fi,
+[/pft]
+
+[pft]
+if p(v250) then '<TR><TD WIDTH="30%" colspan="2"><b>Recursos oferecidos:&nbsp;</b>',v250+|; |'</TD></TR>'/fi,
+[/pft]
+
+
+[pft]
+if p(v260) then '<TR><TD WIDTH="30%" colspan="2"><b>Custos:&nbsp;</b>',v260,'</TD></TR>'/fi,
+[/pft]
+
+
+[pft]
+if p(v270) then '<TR><TD WIDTH="30%" colspan="2"><b>Atualização do cadastro:&nbsp;</b>',v270*6.2"/"v270*4.2"/"v270*0.4,'</TD></TR>'/fi,
+[/pft]
+
+</table><p>
+
+
+
+</font>
+<P>
+
+</center>
+</body>
+</html>

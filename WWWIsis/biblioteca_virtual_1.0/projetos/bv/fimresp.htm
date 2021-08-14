@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Programas e Projetos Sociais >> Paginas</title>
+<link href="estilos.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<br><br>
+
+<!-- Cada botao de navegacao sera tratado como um form diferente -->
+<table width="100%" border="0">
+<tr><td colspan="8" align="center"></td></tr>
+<tr valign="top">
+<td width="5%"></td>
+<!-- Sequencia que permite numerar as páginas de resposta em termos de X de Y -->
+<!-- <td align="left">página: [pft]if val(v1001)=0 or val(v9307)=0 then '1' else if val(right(f(val(v1001)/val(v9307),0,5),5))>0 then
+ f(val(v1001)/val(v9307)+1,0,0),
+else
+ f(val(v1001)/val(v9307),0,0),
+fi,fi,
+' de ',
+if val(v1001)=0 or val(v9307)=0 then '1' else if val(right(f(val(v1002)/val(v9307),0,5),5))>0 then
+ f(val(v1002)/val(v9307)+1,0,0),
+else
+ f(val(v1002)/val(v9307),0,0),
+fi,fi,[/pft]&nbsp;</td> -->
+<td align="left">&nbsp;</td>
+<!--  **********************  -->
+<!--  BOTAO: PRIMEIRA PAGINA  -->
+<!--  **********************  -->
+<td align="center">
+<form method="post">
+<input type="hidden" name="IsisScript" value="/projetos/bv/cds.xis">
+<input type="hidden" name="ULTIMO"  value="1">
+<input type="hidden" name="format"  value="[pft]v9308[/pft]">
+<input type="hidden" name="QTDREG"  value="[pft]v9307[/pft]">
+<input type="hidden" name="expbus"  value="[pft]v9002[/pft]">
+<input type="hidden" name="NOME"  value="[pft]v9004[/pft]">
+<input type="hidden" name="PUBLICO"  value="[pft]v9005[/pft]">
+<input type="hidden" name="SECRETARIA"  value="[pft]v9006[/pft]">
+<input type="hidden" name="CIDADE"  value="[pft]v9007[/pft]">
+
+<!--  Se esta avante da primeira pagina ativa botao Pagina Inicial  -->[pft]
+   if  val(v9307) > 0 and val(v1001) > val(v9307) then
+     '<input type="image" src="../projetos/imgs/inicio.gif" name="ACAO" value="BUSCA" title="Página Inicial">',/
+   else
+     '<img src="../projetos/imgs/inicio_dis.gif" title="Página Inicial">',/
+   fi,
+[/pft]</form>
+</td>
+<td align="center">
+<!--  **********************  -->
+<!--  BOTAO:  VOLTAR  PAGINA  -->
+<!--  **********************  -->
+<form method="post">
+<input type="hidden" name="IsisScript" value="/projetos/bv/cds.xis">
+<input type="hidden" name="ULTIMO"  value="[pft]if right(f(val(v1001)/val(v9307),0,2),2)='00' then f(val(v1001)-val(v9307)-val(v9307)+1,0,0) else f(val(left(f(val(v1001)/val(v9307)-1,0,1),size(f(val(v1001)/val(v9307)-1,0,1))-2))*val(v9307)+1,0,0) fi[/pft]">
+<input type="hidden" name="format"  value="[pft]v9308[/pft]">
+<input type="hidden" name="QTDREG"  value="[pft]v9307[/pft]">
+<input type="hidden" name="expbus"  value="[pft]v9002[/pft]">
+<input type="hidden" name="NOME"  value="[pft]v9004[/pft]">
+<input type="hidden" name="PUBLICO"  value="[pft]v9005[/pft]">
+<input type="hidden" name="SECRETARIA"  value="[pft]v9006[/pft]">
+<input type="hidden" name="CIDADE"  value="[pft]v9007[/pft]">
+
+<!--  Botao Pagina Anterior, caso exista alguma  -->[pft]
+   if val(v9307) > 0 and val(v1001) > val(v9307) then
+     '<input type="image" src="../projetos/imgs/anterior.gif" name="ACAO" value="BUSCA" title="Página Anterior">',/
+   else
+     '<img src="../projetos/imgs/anterior_dis.gif" title="Página Anterior">',/
+   fi,
+[/pft]</form>
+</td>
+<td align="center">
+<!--  **********************  -->
+<!--  BOTAO: AVANCAR  PAGINA  -->
+<!--  **********************  -->
+<form method="post">
+<input type="hidden" name="IsisScript" value="/projetos/bv/cds.xis">
+<input type="hidden" name="ULTIMO"  value="[pft]f(val(v1001)+1,0,0)[/pft]">
+<input type="hidden" name="format"  value="[pft]v9308[/pft]">
+<input type="hidden" name="QTDREG"  value="[pft]v9307[/pft]">
+<input type="hidden" name="expbus"  value="[pft]v9002[/pft]">
+<input type="hidden" name="NOME"  value="[pft]v9004[/pft]">
+<input type="hidden" name="PUBLICO"  value="[pft]v9005[/pft]">
+<input type="hidden" name="SECRETARIA"  value="[pft]v9006[/pft]">
+<input type="hidden" name="CIDADE"  value="[pft]v9007[/pft]">
+
+<!--  Botao Proxima Pagina, caso exista alguma  -->[pft]
+   if val(v9307) <> 0 and (val(v1002)-val(v1001)>0) then
+     '<input type="image" src="../projetos/imgs/proximo.gif" title="Próxima Página">',/
+   else
+     '<img src="../projetos/imgs/proximo_dis.gif" title="Próxima Página">',/
+   fi,
+[/pft]</form>
+</td>
+<td align="center">
+<!--  **********************  -->
+<!--  BOTAO:  ULTIMA  PAGINA  -->
+<!--  **********************  -->
+<form method="post">
+<input type="hidden" name="IsisScript" value="/projetos/bv/cds.xis">
+<input type="hidden" name="ULTIMO"  value="[pft]if right(f(val(v1002)/val(v9307),0,2),2)='00' then f(val(v1002)-val(v9307)+1,0,0) else f(val(left(f(val(v1002)/val(v9307),0,1),size(f(val(v1002)/val(v9307),0,1))-2))*val(v9307)+1,0,0) fi[/pft]">
+<input type="hidden" name="format"  value="[pft]v9308[/pft]">
+<input type="hidden" name="QTDREG"  value="[pft]v9307[/pft]">
+<input type="hidden" name="expbus"  value="[pft]v9002[/pft]">
+<input type="hidden" name="NOME"  value="[pft]v9004[/pft]">
+<input type="hidden" name="PUBLICO"  value="[pft]v9005[/pft]">
+<input type="hidden" name="SECRETARIA"  value="[pft]v9006[/pft]">
+<input type="hidden" name="CIDADE"  value="[pft]v9007[/pft]">
+
+<!--  Botao Pagina Final, se ja não for a propria  -->[pft]
+   if val(v9307) <> 0 and (val(v1002)-val(v1001)>0) then
+     '<input type="image" src="../projetos/imgs/final.gif" title="Página Final">',/
+   else
+     '<img src="../projetos/imgs/final_dis.gif" title="Página Final">',/
+   fi,
+[/pft]</form></td><td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr><tr>
+
+
+<td width="45%"><font color="white" SIZE="-2">&nbsp;Corrente: [pft]v1001[/pft]&nbsp;Total: [pft]v1002[/pft]&nbsp;QTDREG: [pft]v9307[/pft]&nbsp;ULTIMO: [pft]v9310[/pft]&nbsp;FIM: [pft]
+if right(f(val(v1002)/val(v9307),0,2),2)='00' then f(val(v1002)-val(v9307)+1,0,0) else f(val(left(f(val(v1002)/val(v9307),0,1),size(f(val(v1002)/val(v9307),0,1))-2))*val(v9307)+1,0,0) fi
+[/pft]&nbsp;CALCULO: [pft]
+if right(f(val(v1001)/val(v9307),0,2),2)='00' then f(val(v1001)-val(v9307)-val(v9307)+1,0,0) else f(val(left(f(val(v1001)/val(v9307)-1,0,1),size(f(val(v1001)/val(v9307)-1,0,1))-2))*val(v9307)+1,0,0) fi
+[/pft]</font></td>
+</tr>
+</table>
+</body>
+</html>

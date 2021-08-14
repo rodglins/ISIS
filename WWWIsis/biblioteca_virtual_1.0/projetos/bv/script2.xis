@@ -1,0 +1,789 @@
+<IsisScript>
+
+<!-- ================================== -->
+<!-- DEFINICAO DE FUNCOES DO IsisScript -->
+<!-- ================================== -->
+
+<!-- *************************************************** -->
+<!-- --------------------------------------------------- -->
+<!-- LIMPA_CAMPOS - Elimina problemas com caracteres     -->
+<!--                                                     -->
+ <function name="LIMPA_CAMPOS">
+ <!-- Comentarios: Substitui caracteres problematicos por espaco       -->
+ <!--  caracteres substituiveis: ponto, virgula, ponto-e-virgula,      -->
+ <!--                            barra, igual, porcentagem, abre       -->
+ <!--                            colchete, fecha colchete, abre        -->
+ <!--                            parentesis, fecha parentesis,         -->
+ <!--                            hifen, pipe, barra invertida,         -->
+ <!--                            espaco duplo, e espaco final          -->
+ <!--  os campos sujeitos a este tratamento são: 9002 - EXPLIV         -->
+ <!--                                            9004 - AUTOR          -->
+ <!--                                            9005 - TITULO         -->
+ <!--                                            9006 - ASSUNTO        -->
+     
+     <field action="import" tag="list">9002/9006</field>
+     
+     <field action="replace" tag="9103">'</field>
+     
+     <field action="replace" tag="9002"><pft>,replace(v9002,'.',' '),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,',',' '),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,';',' '),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,':',' '),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,'/',' '),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,'=',' '),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,'%',' '),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,'[',' '),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,']',' '),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,'(',' '),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,')',' '),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,'-',' '),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,'|',' '),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,'\',' '),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,v9103,' '),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,'  ',' '),</pft></field>
+
+     <field action="replace" tag="9002"><pft>,replace(v9002,' ^ ','^'),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,'^ ','^'),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,' ^','^'),</pft></field>
+
+     <field action="replace" tag="9002"><pft>,replace(v9002,' + ','+'),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,'+ ','+'),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,' +','+'),</pft></field>
+
+     <field action="replace" tag="9002"><pft>,replace(v9002,'^',' ^'),</pft></field>
+     <field action="replace" tag="9002"><pft>,replace(v9002,'+',' +'),</pft></field>
+
+     <field action="replace" tag="9002"><pft>,if right(v9002,1)=' ' then,left(v9002,size(v9002)-1),else,v9002,fi,</pft></field>
+     
+     <field action="replace" tag="9004"><pft>,replace(v9004,'.',' '),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,',',' '),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,';',' '),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,':',' '),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,'/',' '),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,'=',' '),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,'%',' '),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,'[',' '),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,']',' '),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,'(',' '),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,')',' '),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,'-',' '),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,'|',' '),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,'\',' '),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,v9103,' '),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,'  ',' '),</pft></field>
+
+     <field action="replace" tag="9004"><pft>,replace(v9004,' ^ ','^'),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,'^ ','^'),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,' ^','^'),</pft></field>
+
+     <field action="replace" tag="9004"><pft>,replace(v9004,' + ','+'),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,'+ ','+'),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,' +','+'),</pft></field>
+
+     <field action="replace" tag="9004"><pft>,replace(v9004,'^',' ^'),</pft></field>
+     <field action="replace" tag="9004"><pft>,replace(v9004,'+',' +'),</pft></field>
+
+     <field action="replace" tag="9004"><pft>,if right(v9004,1)=' ' then,left(v9004,size(v9004)-1),else,v9004,fi,</pft></field>
+
+     <field action="replace" tag="9005"><pft>,replace(v9005,'.',' '),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,',',' '),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,';',' '),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,':',' '),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,'/',' '),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,'=',' '),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,'%',' '),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,'[',' '),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,']',' '),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,'(',' '),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,')',' '),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,'-',' '),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,'|',' '),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,'\',' '),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,v9103,' '),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,'  ',' '),</pft></field>
+
+     <field action="replace" tag="9005"><pft>,replace(v9005,' ^ ','^'),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,'^ ','^'),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,' ^','^'),</pft></field>
+
+     <field action="replace" tag="9005"><pft>,replace(v9005,' + ','+'),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,'+ ','+'),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,' +','+'),</pft></field>
+
+     <field action="replace" tag="9005"><pft>,replace(v9005,'^',' ^'),</pft></field>
+     <field action="replace" tag="9005"><pft>,replace(v9005,'+',' +'),</pft></field>
+
+     <field action="replace" tag="9005"><pft>,if right(v9005,1)=' ' then,left(v9005,size(v9005)-1),else,v9005,fi,</pft></field>
+     
+     <field action="replace" tag="9006"><pft>,replace(v9006,'.',' '),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,',',' '),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,';',' '),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,':',' '),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,'/',' '),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,'=',' '),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,'%',' '),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,'[',' '),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,']',' '),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,'(',' '),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,')',' '),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,'-',' '),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,'|',' '),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,'\',' '),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,v9103,' '),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,'  ',' '),</pft></field>
+
+     <field action="replace" tag="9006"><pft>,replace(v9006,' ^ ','^'),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,'^ ','^'),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,' ^','^'),</pft></field>
+
+     <field action="replace" tag="9006"><pft>,replace(v9006,' + ','+'),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,'+ ','+'),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,' +','+'),</pft></field>
+
+     <field action="replace" tag="9006"><pft>,replace(v9006,'^',' ^'),</pft></field>
+     <field action="replace" tag="9006"><pft>,replace(v9006,'+',' +'),</pft></field>
+
+     <field action="replace" tag="9006"><pft>,if right(v9006,1)=' ' then,left(v9006,size(v9006)-1),else,v9006,fi,</pft></field>
+     
+     <field action="export"  tag="list">9002/9006</field>
+ </function>
+ 
+ 
+<!-- --------------------------------------------------- -->
+<!-- cCipar - carrega CIPAR                              -->
+<!--                                                     -->
+ <function name="cCipar" action="replace" tag="1">
+ <!-- Comentarios: Carrega as definicoes de nomes logicos de arquivo   -->
+ <!--        BASE.* - Arquivos da Base de Dados a ser operada na busca -->
+ <!--       GHTML.* - Arquivos da base de dados Gizmo para HTML        -->
+ <!--     longo.txt - Arquivo que define o formato longo               -->
+ <!--     curto.txt - Arquivo que define o formato curto               -->
+ <!--     local.txt - Arquivo que define o formato local               -->
+ <!--    openpg.htm - Abertura padrao de pagina HTML                   -->
+ <!--  tpresp01.htm - Topo da pagina de resposta                       -->
+ 
+ <!--    CI_TEMPDIR - Diretorio para escrita de temporarios pelo WXIS  -->
+   
+  <field action="import" tag="list">9000/9099</field>
+
+<parm name=cipar><pft>cat('cds.cip')
+'cds.*=',v9097,v9099,'cds.*',/
+'GHTML.*=',v9097,v9099,'/gizmo/asc2html.*',/,  
+'formato1=',v9097,v9099,'titulo.htm'/ 
+'formato2=',v9097,v9099,'titulo2.htm'/
+'formato4=',v9097,v9099,'titulo4.htm'/
+
+     'CABRESP.HTM=',v9097,v9099,'cabresp.htm',/,
+     'FIMRESP.HTM=',v9097,v9099,'fimresp.htm',/,
+     'ERROPAG.HTM=',v9097,v9099,'erropag.htm',/,
+     'CI_TEMPDIR=','c:\temp',/,
+
+
+  /* 'CI_TEMPDIR=','c:\winnt\temp',/, */
+  </pft></parm>
+
+</function>
+<!-- --------------------------------------------------- -->
+
+<!-- --------------------------------------------------- -->
+<!-- cExpres - carrega expressao de busca                -->
+<!--                                                     -->
+ <function name="cExpres" action="replace" tag="1">
+ <!-- Comentarios: Carrega uma expressao de busca unica                -->
+ <!--              Toma todas as diversas expressoes de busca          -->
+ <!--              informadas e monta uma expressao consolidada        -->
+ <!--                                                                  -->
+ <!--              Para a expressao livre efetua a montagem da         -->
+ <!--              restricao de campo como devido                      -->
+ <!--                                                                  -->
+ <!--  TIPREG      v9001  Tipo de registro a ser pesquisado            -->
+ <!--  EXPLIV      v9002  Expressao booleana de busca                  -->
+ <!--  CAMPOS      v9003  Restricao de busca para a expressao booleana -->
+ <!--  AUTOR       v9004  Expressao com dados de autor para busca      -->
+ <!--  TITULO      v9005  Expressao com dados de titulo para busca     -->
+ <!--  ASSUNTO     v9006  Expressao com dados de assunto para busca    -->
+  
+  <field action="import" tag="list">9000/9099</field>
+  
+  <!-- DEBUG -->
+  <display><pft>
+   if v9000='all' or v9000='expr' then 
+    '<table border="1" cellpadding="1" cellspacing="0" width="600">',/
+    '<tr><td colspan="6">Montagem da expressao de busca (entradas):</td></tr>',/
+    '<tr><td>v9001:</td><td>',v9001,'</td><td>v9002:</td><td>',v9002,'</td><td>v9003:</td><td>',v9003,'</td></tr>',/
+    '<tr><td>v9004:</td><td>',v9004,'</td><td>v9005:</td><td>',v9005,'</td><td>v9006:</td><td>',v9006,'</td></tr>',/
+    '</table>',/
+   fi,
+  </pft></display>
+  <!-- DEBUG -->
+
+
+<!-- ---------------------------- -->
+<!-- Trata a caixa de busca livre -->
+<!-- ---------------------------- -->
+  <field action="replace" tag="9992"><pft>
+   
+   if p(v9002) then 
+     if p(v9003) then
+       '(',replace(replace(v9002,'  ',' '),' ',s('/(',v9003,') * ')),'/(',v9003,')',')',
+     else
+       '(',replace(replace(v9002,'  ',' '),' ',s(' * ')),')',
+     fi,
+   fi
+  </pft></field>
+  <!-- DEBUG -->
+  <display><pft>
+   if v9000='all' or v9000='expr' then 
+    '<table border="1" cellpadding="1" cellspacing="0" width="600">',/
+    '<tr><td colspan="2">Tratamento da expressao livre:</td></tr>',/
+    '<tr><td>v9992:</td><td>',v9992,'</td></tr>',/
+    '</table>',/
+   fi,
+  </pft></display>
+  <!-- DEBUG -->
+  <!-- ---------------------------- -->
+   
+  <!-- ---------------------------------- -->
+  <!-- Liga todos os campos pre-restritos -->
+  <!-- ---------------------------------- -->
+  <field action="replace" tag="9100"><pft>
+   
+   if p(v9004) and p(v9005) and p(v9006) then,
+      '(',replace(replace(v9004,'  ',' '),' ',s('/(20,110,700) * ')),'/(20,110,700)',') * ',
+      '(',replace(replace(v9005,'  ',' '),' ',s('/(70,245) * ')),'/(70,245)',') * ',
+      '(',replace(replace(v9006,'  ',' '),' ',s('/(80,654) * ')),'/(80,654)',')'
+   fi,
+   
+   if p(v9004) and p(v9005) and a(v9006) then,
+      '(',replace(replace(v9004,'  ',' '),' ',s('/(20,110,700) * ')),'/(20,110,700)',') * ',
+      '(',replace(replace(v9005,'  ',' '),' ',s('/(70,245) * ')),'/(70,245)',')',
+   fi,
+   
+   if p(v9004) and a(v9005) and p(v9006) then,
+      '(',replace(replace(v9004,'  ',' '),' ',s('/(20,110,700) * ')),'/(20,110,700)',') * ',
+      '(',replace(replace(v9006,'  ',' '),' ',s('/(80,654) * ')),'/(80,654)',')'
+   fi,
+    
+   if p(v9004) and a(v9005) and a(v9006) then,
+      '(',replace(replace(v9004,'  ',' '),' ',s('/(20,110,700) * '))'/(20,110,700)',')'
+   fi,
+    
+   if a(v9004) and p(v9005) and p(v9006) then,
+      '(',replace(replace(v9005,'  ',' '),' ',s('/(70,245) * ')),'/(70,245)',') * ',
+      '(',replace(replace(v9006,'  ',' '),' ',s('/(80,654) * ')),'/(80,654)',')'
+   fi,
+    
+   if a(v9004) and p(v9005) and a(v9006) then,
+      '(',replace(replace(v9005,'  ',' '),' ',s('/(70,245) * ')),'/(70,245)',')',
+   fi, 
+    
+   if a(v9004) and a(v9005) and p(v9006) then,
+      '(',replace(replace(v9006,'  ',' '),' ',s('/(80,654) * ')),'/(80,654)',')'
+   fi,
+
+   if a(v9004) and a(v9005) and a(v9006) and p(v9007) then,
+      '(',replace(replace(v9007,'  ',' '),' ',s('/(130,654) * ')),'/(130,654)',')'
+   fi,
+    
+   if a(v9004) and a(v9005) and a(v9006) and a(v9007) then,
+      '',
+   fi,
+    
+  </pft></field>
+  <!-- DEBUG -->
+  <display><pft>
+   if v9000='all' or v9000='expr' then 
+    '<table border="1" cellpadding="1" cellspacing="0" width="600">',/
+    '<tr><td colspan="2">Montagem da expressao de busca (mix 1):</td></tr>',/
+    '<tr><td>v9100:</td><td>',if v9100='' then '&nbsp;' else replace(replace(v9100,'* +','+ '),'* ^','^ ') fi,'</td></tr>',/
+    '</table>',/
+   fi,
+  </pft></display>
+  <!-- DEBUG -->
+  <!-- ---------------------------------- -->
+   
+  <!-- -------------------------------------- -->
+  <!-- Junta com a expressao livre ja tratada -->
+  <!-- -------------------------------------- -->
+  <field action="replace" tag="9100"><pft>if v9100>'' and p(v9992) then v9992,' * ',replace(replace(v9100,'* +','+ '),'* ^','^ ') fi</pft></field>
+  <field action="replace" tag="9100"><pft>if v9100='' and p(v9992) then v9992 fi</pft></field>
+  <!-- DEBUG -->
+  <display><pft>
+   if v9000='all' or v9000='expr' then
+    '<table border="1" cellpadding="1" cellspacing="0" width="600">',/
+    '<tr><td colspan="2">Montagem da expressao de busca (w/ livre):</td></tr>',/
+    '<tr><td>v9100:</td><td>',replace(replace(v9100,'* +','+ '),'* ^','^ '),'</td></tr>',/
+    '</table>',/
+   fi
+  </pft></display>
+  <!-- DEBUG -->
+  <!-- -------------------------------------- -->
+   
+  <!-- ----------------------------------------------------- -->
+  <!-- Junta com o filtro de tipo de material se selecionado -->
+  <!-- ----------------------------------------------------- -->
+  <field action="replace" tag="9100"><pft>if p(v9001) and p(v9100) then '(',v9001,'/(910)',')',' * ',replace(replace(v9100,'* +','+ '),'* ^','^ '), fi</pft></field>
+  <!-- DEBUG -->
+  <display><pft>
+   if v9000='all' or v9000='expr' then 
+    '<table border="1" cellpadding="1" cellspacing="0" width="600">',/
+    '<tr><td colspan="2">Montagem da expressao de busca (FINAL):</td></tr>',/
+    '<tr><td>v9100:</td><td>',replace(replace(v9100,'* +','+ '),'* ^','^ '),'</td></tr>',/
+    '</table>',/
+   fi
+  </pft></display>
+  <!-- DEBUG -->
+  <!-- ----------------------------------------------------- -->
+    
+  <field action="export" tag="9100">9100</field>
+  
+ </function>
+  
+<!-- *************************************************** -->
+ 
+<!-- --------------------------------------------------- -->
+  
+<!-- ================================== -->
+  
+<!-- ================================== -->
+<!-- DEFINICAO DA SECTION DO IsisScript -->
+<!-- ================================== -->
+ <section name="main">
+<!-- --------------------------------------------------- -->
+<!--        MAIN - Corpo principal do IsisScript         -->
+<!--                                                     -->
+  
+  <!-- Abre o tipo de dado entregue ao browser --> 
+  <display><pft>'Content-type: text/html'/#</pft></display>
+<display><pft>'<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<head>
+<title>Programas e Projetos Sociais >> Resultado da Busca</title>
+<link href="../projetos/bv/estilos.css" rel="stylesheet" type="text/css">
+<script defer="defer" id="snap_preview_anywhere" type="text/javascript" src="http://spa.snap.com/snap_preview_anywhere.js?ap=1&amp;key=c7fbe34b66359dc0a9c1d1927d80ca47&amp;sb=&amp;th=silver&amp;cl=0&amp;si=1&amp;oi=0&amp;domain=www.bibliotecavirtual.sp.gov.br/projetos/index.htm"></script>
+<style type="text/css">
+a { text-decoration: none; color: #000000;}
+a:hover { text-decoration: underline;}
+
+#resultadoz td {text-align: justify; padding: 5px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color: #000000; border: 1px solid "#999999";}
+
+</style> </head>
+'</pft></display>
+   
+  <!-- Controle de depuracao -->
+  <!-- <trace>On</trace> -->
+   
+  <!-- --------------------------------------------------- -->
+  <!-- Carrega variaveis de configuracao (de certa forma: variaveis constantes) -->
+   
+  <!--          Local de execucao no servidor Web          -->
+  <field action="replace" tag="9099"><pft>'/projetos/bv/'</pft></field>
+   
+  <!--                Local informado na URL               -->
+  <field action="replace" tag="9098"><pft>getenv('PATH_INFO')</pft></field>
+   
+  <!--              Diretório fisico corrente              -->
+  <field action="replace" tag="9097"><pft>getenv('PATH_TRANSLATED')</pft></field>
+
+  <!-- --------------------------------------------------- -->
+   
+  <!-- Carrega os nomes logicos de arquivos -->
+  <call name="cCipar">now</call>
+   
+  <!-- --------------------------------------------------- -->
+
+
+  <!-- Toma variaveis do ambiente CGI -->
+<field action=cgi tag=9002>expbus</field>
+<field action=cgi tag=9004>NOME</field>
+<field action=cgi tag=9005>PUBLICO</field>
+<field action=cgi tag=9006>SECRETARIA</field>
+<field action=cgi tag=9007>CIDADE</field>
+<field action=cgi tag=9097>path</field>
+<field action=cgi tag=9308>format</field>
+<field action=cgi tag=9010>term0</field>
+<field action=cgi tag=9307>QTDREG</field>
+<field action=cgi tag=9309>ACAO</field>
+<field action=cgi tag=9310>ULTIMO</field>
+<field action=cgi tag=50>base</field>
+<field action=cgi tag=51>from</field>
+<field action=cgi tag=52>to</field>
+
+ <call name="LIMPA_CAMPOS">now</call>
+
+  <!-- Efetua um DUMP de DEBUG rapido -->
+  <display><pft>
+   if v9000>'' then
+     '<table border="1" cellpaddiung="1" cellspacing="0" width="600">',/
+     '<tr><td colspan="3" align="center"><b>Variaveis passadas e montadas</b></td></tr>',/
+     '<tr><td>v9000</td><td>&nbsp;DEBUG&nbsp;</td>          <td>',if v9000>'' then v9000 else '&nbsp;' fi,'</td></tr>',/
+     '<tr><td>v9001</td><td>&nbsp;TIPREG&nbsp;</td>         <td>',if v9001>'' then v9001 else '&nbsp;' fi,'</td></tr>',/
+     '<tr><td>v9002</td><td>&nbsp;EXPBUS&nbsp;</td>         <td>',if v9002>'' then v9002 else '&nbsp;' fi,'</td></tr>',/
+     '<tr><td>v9003</td><td>&nbsp;CAMPOS&nbsp;</td>         <td>',if v9003>'' then v9003 else '&nbsp;' fi,'</td></tr>',/
+     '<tr><td>v9004</td><td>&nbsp;NOME&nbsp;</td>          <td>',if v9004>'' then v9004 else '&nbsp;' fi,'</td></tr>',/
+     '<tr><td>v9005</td><td>&nbsp;PUBLICO&nbsp;</td>         <td>',if v9005>'' then v9005 else '&nbsp;' fi,'</td></tr>',/
+     '<tr><td>v9006</td><td>&nbsp;SECRETARIA&nbsp;</td>        <td>',if v9006>'' then v9006 else '&nbsp;' fi,'</td></tr>',/
+     '<tr><td>v9007</td><td>&nbsp;CIDADE&nbsp;</td>        <td>',if v9007>'' then v9007 else '&nbsp;' fi,'</td></tr>',/
+     '<tr><td>v9307</td><td>&nbsp;QTDREG&nbsp;</td>         <td>',if v9307>'' then v9307 else '&nbsp;' fi,'</td></tr>',/
+     '<tr><td>v9308</td><td>&nbsp;FORMAT&nbsp;</td>         <td>',if v9308>'' then v9308 else '&nbsp;' fi,'</td></tr>',/
+     '<tr><td>v9309</td><td>&nbsp;ACAO&nbsp;</td>           <td>',if v9309>'' then v9309 else '&nbsp;' fi,'</td></tr>',/
+     '<tr><td>v9310</td><td>&nbsp;ULTIMO&nbsp;</td>         <td>',if v9310>'' then v9310 else '&nbsp;' fi,'</td></tr>',/
+     '<tr><td>v9097</td><td>&nbsp;PATH_TRANSLATED&nbsp;</td><td>',if v9097>'' then v9097 else '&nbsp;' fi,'</td></tr>',/
+     '<tr><td>v9098</td><td>&nbsp;PATH_INFO&nbsp;</td>      <td>',if v9098>'' then v9098 else '&nbsp;' fi,'</td></tr>',/
+     '<tr><td>v9099</td><td>&nbsp;LOCAL EXEC&nbsp;</td>     <td>',if v9099>'' then v9099 else '&nbsp;' fi,'</td></tr>',/
+     '</table>',/
+   fi
+  </pft></display>
+
+ 
+   
+
+  <!-- Define acao conforme chamada -->
+  <flow action="jump"><pft>if p(v9309) then v9309 fi</pft></flow>
+
+
+
+<!-- --------------------------------------------------- -->
+   
+<!-- --------------------------------------------------- -->
+<!-- Opera a busca na base de dados                      -->
+<!--                                                     -->
+<label>BUSCA</label>
+<label>DETALHAR</label>
+<label>LOCALIZACAO</label>
+   
+  <!-- Neste ponto chega quando se pressiona o botao  -->
+  <!-- "Pesquisa" no formulário, portanto a expressao -->
+  <!-- de busca ainda deve ser montada                -->
+   
+  <!-- Monta a efetiva expressão de busca -->
+  <call name="cExpres">now</call>
+   
+
+
+
+  <!-- --------------------------------------------------- -->
+  <!--     Empreende a busca na base de dados apontada     -->
+  <!-- --------------------------------------------------- -->
+
+
+<do task=mfnrange>
+<parm name="gizmo">GHTML</parm>
+<parm name=db><pft>v50</pft></parm>
+<parm name=from><pft>v51</pft></parm>	 
+<parm name=to><pft>v52</pft></parm>	
+
+
+
+<parm name="expression"><pft>replace(replace(v9100,'* +','+ '),'* ^','^ ')</pft></parm>
+<parm name="count"><pft>if val(v9307)<>0 then v9307 fi</pft></parm>
+
+
+<field action="define" tag="1001">Isis_Current</field>
+<field action="define" tag="1002">Isis_Total</field>
+<field action="define" tag="1005">Isis_Keys</field>
+<field action="define" tag="1031">Isis_From</field>
+<field action="define" tag="1091">Isis_Status</field>
+<field action="define" tag="1092">Isis_ErrorInfo</field>
+
+<field action="import" tag="9309">9309</field>
+
+<loop><!-- qtd de hits da busca --></loop>
+
+<field action="replace" tag="9103"><pft>v1002</pft></field>
+
+<!-- site -->
+
+<display><pft>'<body><script type="text/javascript" src="http://www.saopaulo.sp.gov.br/barrasp/js/include_centralizada.js.php"></script><table width="760" border="0" align="center" cellpadding="0" cellspacing="0" id="corpo">
+  <tr>
+    <th height="110" valign="top" scope="col">
+
+
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr valign="middle">
+          <td align="left" valign="middle" scope="col"><img src="../projetos/imgs/logo3.jpg" alt="Programas e Projetos Sociais do Governo do Estado de São Paulo"></p></td>
+        
+        </tr>
+    </table>
+
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+        
+ 
+
+<tr valign="middle">
+          <td width="115" align="center" valign="middle" scope="col"><a href="http://www.bv.sp.gov.br" target=_blank><img src="../projetos/imgs/logo_bvpq.gif" border="0" alt="Biblioteca Virtual"></a></td>
+          <td align="left" valign="middle" scope="col"><img src="../projetos/imgs/logo1.jpg" alt="Programas e Projetos Sociais do Governo do Estado de São Paulo"></p></td>
+          
+        </tr>    </table></th>
+  </tr>
+  <tr>
+    <td><br><img src="../projetos/imgs/barra_azul.jpg"><img src="../projetos/imgs/in.gif"><a href="../projetos/index.htm" target=_parent><img src="../projetos/imgs/home.gif" border="0" alt="Página inicial"></a><a href="../projetos/sobre.htm" target=_parent><img src="../projetos/imgs/sobre.gif" border="0" alt="Sobre o site"></a><a href="../projetos/contato.htm" target=_parent><img src="../projetos/imgs/contato.gif" border="0" alt="Contato"></a></td>
+
+
+
+
+
+  </tr>
+  <tr>
+    <td><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td rowspan="2" id="lateral2" valign="top" background="../projetos/imgs/verde.gif"> 
+        <p class="lateral_titulo">Programas por perfil</p>
+<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=especia$&format=1&QTDREG=05">Portador de necessidades </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=especia$&format=1&QTDREG=05">especiais</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=crian$&format=1&QTDREG=05">Crian&ccedil;a</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=desempre$&format=1&QTDREG=05">Desempregado</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=estudan$&format=1&QTDREG=05">Estudante</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=familia$&format=1&QTDREG=05">Fam&iacute;lia</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=mulher$&format=1&QTDREG=05">Mulheres</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=preso$&format=1&QTDREG=05">P&uacute;blico Carcer&aacute;rio</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=idoso$&format=1&QTDREG=05">Terceira Idade</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=adoles$&format=1&QTDREG=05">Adolescente</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=atleta$&format=1&QTDREG=05">Atleta</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=comunidad$&format=1&QTDREG=05">Comunidade local</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=cidad$&format=1&QTDREG=05">Cidadão</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=egress$&format=1&QTDREG=05">Egresso</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=institui$&format=1&QTDREG=05">Instituições</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=morador$&format=1&QTDREG=05">Morador de rua</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=profess$&format=1&QTDREG=05">Professor</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=superior$&format=1&QTDREG=05">Profissional nível superior</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=servidor$&format=1&QTDREG=05">Servidor público</a><br><img src="../projetos/imgs/linha2.jpg"><br> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&PUBLICO=trabalha$&format=1&QTDREG=05">Trabalhador</a><br> 
+
+<br><br>
+
+<p class="lateral_titulo">Pesquisa por secretaria</p>
+  
+
+<center>
+<br>
+
+
+<form name="form1">
+<select name="select1" class="campostxt" size="1" style="background-color:white" onChange="displaydesc(document.form1.select1, thetext1, /textcontainer1/)">
+<option selected>+ Programas por secretaria</option>
+
+<option value="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&SECRETARIA=peniten$&format=1&QTDREG=05">Administração Penitenciária</option>
+
+<option value="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&SECRETARIA=agricultura$&format=1&QTDREG=05">Agricultura e Abastecimento</option>
+
+<option value="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&SECRETARIA=assisten$&format=1&QTDREG=05">Assistência Social</option>
+
+<option value="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&SECRETARIA=civil&format=1&QTDREG=05">Casa Civil</option>
+
+<option value="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&SECRETARIA=cultura&format=1&QTDREG=05">Cultura</option>
+
+<option value="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&SECRETARIA=economia&format=1&QTDREG=05">Economia e Planejamento</option>
+
+<option value="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&SECRETARIA=educa$&format=1&QTDREG=05">Educação</option>
+
+<option value="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&SECRETARIA=emprego&format=1&QTDREG=05">Emprego</option>
+
+<option value="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&SECRETARIA=energia&format=1&QTDREG=05">Energia e Recursos Hídricos</option>
+
+<option value="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&SECRETARIA=habita$&format=1&QTDREG=05">Habitação</option>
+
+<option value="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&SECRETARIA=justi$&format=1&QTDREG=05">Justiça</option>
+
+ <option value="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&SECRETARIA=juventude&format=1&QTDREG=05">Juventude</option>
+
+ <option value="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&SECRETARIA=ambiente&format=1&QTDREG=05">Meio Ambiente</option>
+
+<option value="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&SECRETARIA=saude&format=1&QTDREG=05">Saúde</option>
+
+<option value="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&SECRETARIA=seguran$&format=1&QTDREG=05">Segurança</option>
+
+<option value="../cgi-bin/wxis.exe?IsisScript=/projetos/bv/cds.xis&cds=cds&SECRETARIA=metropolitanos$&format=1&QTDREG=05">Transportes Metropolitanos</option>
+
+</select>&nbsp;<input type="button" value="Ir" 
+onClick="jumptolink(document.form1.select1)"><br>
+<span id="textcontainer1" align="left" style="font:12px Arial">
+</span>
+</form>
+
+<script type="text/javascript">
+
+//1) CUSTOMIZE TEXT DESCRIPTIONS FOR LINKS ABOVE
+var thetext1=new Array()
+thetext1[0]="Comprehensive JavaScript tutorials and over 400+ free scripts"
+thetext1[1]="Direct link to hundreds of free Java applets online!"
+thetext1[2]="Up to date news on the technology front"
+thetext1[3]="News.com- The #1 technology News site."
+thetext1[4]="Web Coding and development forums"
+
+// Now, see 2) below for final customization step
+
+function displaydesc(which, descriptionarray, container){
+document.innerHTML=descriptionarray[which.selectedIndex]
+}
+
+function jumptolink(what){
+var selectedopt=what.options[what.selectedIndex]
+window.location=selectedopt.value
+
+}
+
+//2) Call function displaydesc() for each drop down menu you have on the page
+//   This function displays the initial description for the selected menu item
+//   displaydesc(name of select menu, name of corresponding text array, ID of SPAN container tag):
+//   Important: Remove the calls not in use (ie: 2nd line below if theres only 1 menu on your page)
+
+displaydesc(document.form1.select1, thetext1, /textcontainer1/)
+
+</script></center>
+
+
+
+</div>
+ 
+
+</td>
+  
+        </tr>      
+<tr>
+
+<td valign="top" class="pagetxt">
+<p align="center">
+<span class="pagemenu">
+
+<p><b>Resultado da busca</b></p>
+
+</span></p>
+
+
+
+
+'</pft></display>
+
+
+
+<loop>
+<display><htmlpft><pft>cat('formato4')</pft></htmlpft></display>
+</loop>
+
+
+
+
+</do>
+
+
+
+
+
+<display><font color=black>Motor de busca<br>WWWIsis 5.4 da <a href="http://www.bireme.br/" target=blank>Bireme</a></font></display>
+
+<label>NORESULT</label>
+
+
+
+
+
+<display>
+
+          </td>
+      </tr>
+        </table></td>
+  </tr>
+  <tr><td align=left valign=top><img src="../projetos/imgs/top2.jpg"></td></tr>
+
+<tr>
+    <td height="1" bgcolor="#336600"></td>
+  </tr>
+    <tr> 
+	<td id="menu"><center><br> <b>PROGRAMAS E PROJETOS SOCIAIS </b><br>  
+     Esse site permite recuperar informa&ccedil;&otilde;es de programas e projetos sociais mantidos pela administra&ccedil;&atilde;o p&uacute;blica paulista.<br>
+    Biblioteca Virtual do Governo do Estado de S&atilde;o Paulo - Secretaria Estadual de Comunicação</center></td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1913969-1";
+urchinTracker();
+</script>
+</body>
+</html>
+</display>
+
+
+
+
+
+</section>
+
+
+<!-- ================================== -->
+
+<!--
+
+Mapa de Variaveis do sistema
+
+ORIGEM	Campo	Comentario (uso/descricao)
+CGI	v9000	seletor opcional de operacao de depuracao	(   DEBUG no form)
+CGI	v9001	Tipo de registro a ser pesquisado		(  TIPREG no form)
+CGI	v9002	Expressao booleana de busca			(  EXPLIV no form)
+CGI	v9003	Restricao de busca para a expressao booleana	(  CAMPOS no form)
+CGI	v9004	Expressao com dados de autor para busca		(   AUTOR no form)
+CGI	v9005	Expressao com dados de titulo para busca	(  TITULO no form)
+CGI	v9006	Expressao com dados de assunto para busca	( ASSUNTO no form)
+CGI	v9307	Definicao de resultados por pagina		(  QTDREG no form)
+CGI	v9308	Definicao de formato de exibicao		(  FMTDSP no form)
+CGI	v9309	Seletor de acao a executar no Script		(    ACAO no form)
+CGI	v9310	Indicador de ultimo hit mostrado		(  ULTIMO no form)
+CGI     v????   Indicador de operacao do formulario             (OPERACAO no form)
+
+CTE	v9097	PATH_TRANSLATED
+CTE	v9098	PATH_INFO
+CTE	v9099	Path da instalacao (informado por configuracao)
+
+script	v9100	expression montada
+script	v9101	Status da base de dados de log
+script  	v9102   Arquivo de parametros RUNTIME
+script  	v9103   Variavel constante para reter caractere problematico
+
+GLOBAL	v1001	Isis_Current
+GLOBAL	v1002	Isis_Total
+GLOBAL	v1005	Isis_Keys
+GLOBAL	v1031	Isis_From
+GLOBAL	v1091	Isis_Status
+GLOBAL	v1092	Isis_ErrorInfo
+
+== PENDENCIAS ==
+Nenhuma
+
+== Notas de desenvolvimento ==
+
+
+ Alterado em fimresp.htm o numero do ultimo hit para o retorno aa primeira pagina de 0 para 1
+ Adicionada a regra de gravacao de log quando o ultimo hit da pagina de resposta eh zero
+
+
+-->
+
+
+</IsisScript>
